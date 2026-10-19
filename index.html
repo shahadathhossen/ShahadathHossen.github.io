@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shahadath Hossen's academic portfolio featuring AI healthcare research, biomedical imaging, explainable AI, and Android-based AI applications.">
+  <meta name="theme-color" content="#0b1220">
+  <title>Shahadath Hossen | AI Researcher</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #111c2f;
+      --panel-2: #142238;
+      --text: #edf3fc;
+      --muted: #aab8ce;
+      --accent: #64d8cb;
+      --accent-2: #88aaff;
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 18px 50px rgba(0,0,0,.18);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(ellipse at 80% 0%, rgba(70,112,180,.16), transparent 36%), var(--bg);
+      color: var(--text); line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .skip { position: absolute; left: -9999px; }
+    .skip:focus { left: 12px; top: 12px; background: var(--panel); padding: 10px; z-index: 100; }
+    header {
+      position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px);
+      background: rgba(11,18,32,.88); border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 20px; }
+    .brand { color: var(--text); font-weight: 800; letter-spacing: -.03em; font-size: 1.02rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .nav-links a { color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: var(--text); }
+    .menu-btn { display: none; border: 1px solid var(--line); color: var(--text); background: var(--panel); border-radius: 10px; padding: 8px 12px; }
+    .hero { padding: 88px 0 66px; }
+    .hero-grid { display: grid; grid-template-columns: 1.5fr .8fr; align-items: center; gap: 54px; }
+    .eyebrow { color: var(--accent); text-transform: uppercase; font-size: .78rem; font-weight: 800; letter-spacing: .16em; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); line-height: 1.05; letter-spacing: -.055em; margin: 16px 0 20px; }
+    h1 span { color: var(--accent); }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 690px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 17px; border-radius: 12px; font-weight: 750; border: 1px solid var(--line); }
+    .btn.primary { color: #06151a; background: var(--accent); border-color: var(--accent); }
+    .btn.secondary { color: var(--text); background: rgba(255,255,255,.03); }
+    .profile-card { background: linear-gradient(150deg, rgba(100,216,203,.12), rgba(136,170,255,.08)), var(--panel); border: 1px solid var(--line); border-radius: 24px; padding: 28px; box-shadow: var(--shadow); }
+    .avatar { width: 92px; height: 92px; display: grid; place-items: center; border-radius: 24px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b1220; font-weight: 900; font-size: 2rem; margin-bottom: 22px; }
+    .profile-card h2 { margin: 0 0 6px; font-size: 1.35rem; }
+    .profile-card p { margin: 0; font-size: .95rem; }
+    .profile-meta { display: grid; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    section { padding: 64px 0; }
+    .section-head { margin-bottom: 28px; max-width: 740px; }
+    .section-head .eyebrow { margin-bottom: 8px; }
+    h2.section-title { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2; margin: 0 0 12px; letter-spacing: -.035em; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 23px; }
+    .card h3 { margin: 0 0 10px; font-size: 1.12rem; line-height: 1.4; }
+    .card p { margin: 0; color: var(--muted); font-size: .96rem; }
+    .icon-box { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 12px; color: var(--accent); background: rgba(100,216,203,.1); margin-bottom: 18px; font-size: 1.25rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag { border: 1px solid var(--line); background: rgba(255,255,255,.035); border-radius: 999px; padding: 5px 10px; color: #c9d7eb; font-size: .8rem; }
+    .timeline { display: grid; gap: 16px; }
+    .timeline-item { display: grid; grid-template-columns: 150px 1fr; gap: 22px; padding: 22px; background: var(--panel); border: 1px solid var(--line); border-radius: 16px; }
+    .timeline-date { color: var(--accent); font-size: .9rem; font-weight: 800; }
+    .timeline-item h3 { margin: 0 0 6px; }
+    .timeline-item p { color: var(--muted); margin: 0; }
+    .publication { display: flex; flex-direction: column; gap: 12px; }
+    .publication .type { color: var(--accent); font-size: .75rem; text-transform: uppercase; font-weight: 800; letter-spacing: .1em; }
+    .publication .details { color: var(--muted); font-size: .92rem; }
+    .notice { border-left: 3px solid var(--accent); padding: 12px 15px; background: rgba(100,216,203,.07); color: var(--muted); border-radius: 0 10px 10px 0; font-size: .9rem; }
+    .contact-box { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 30px; border-radius: 22px; background: linear-gradient(120deg, rgba(100,216,203,.12), rgba(136,170,255,.1)); border: 1px solid var(--line); }
+    .contact-box h2 { margin: 0 0 8px; }
+    .contact-box p { margin: 0; color: var(--muted); }
+    footer { padding: 30px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    @media (max-width: 850px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .profile-card { max-width: 540px; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 12px; }
+    }
+    @media (max-width: 620px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      .hero { padding-top: 58px; }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 5px; }
+      .nav { min-height: 64px; flex-wrap: wrap; padding: 12px 0; }
+      .menu-btn { display: inline-flex; }
+      .nav-links { display: none; width: 100%; padding: 8px 0 12px; }
+      .nav-links.open { display: flex; }
+      .contact-box { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">Shahadath <span>Hossen</span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Academic portfolio · AI for healthcare</div>
+          <h1>Shahadath <span>Hossen</span></h1>
+          <p>
+            PhD Student in Computer Science and Telecommunication Engineering, working at the
+            intersection of artificial intelligence, healthcare, biomedical imaging, and mobile AI.
+            My goal is to build useful, explainable, and efficient AI tools for real-world settings.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Explore my work ↘</a>
+            <a class="btn secondary" href="#contact">Get in touch</a>
+            <!-- Add a CV PDF to your repository and replace the # below with its path, e.g. href="Shahadath_Hossen_CV.pdf". -->
+            <a class="btn secondary" href="#education">Academic background</a>
+          </div>
+        </div>
+        <aside class="profile-card" aria-label="Profile summary">
+          <div class="avatar" aria-hidden="true">SH</div>
+          <h2>Researcher & Developer</h2>
+          <p>AI · Medical data · Biomedical imaging · Android applications</p>
+          <div class="profile-meta">
+            <div>🎓 <strong>Current role:</strong> PhD Student</div>
+            <div>🏛️ <strong>Institution:</strong> Noakhali Science and Technology University (NSTU)</div>
+            <div>🌏 <strong>Based in:</strong> Bangladesh</div>
+            <div>🔬 <strong>Focus:</strong> Practical and explainable AI</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">About me</div>
+          <h2 class="section-title">Research with a practical purpose</h2>
+          <p>
+            I develop and evaluate machine-learning systems for healthcare and build mobile applications
+            that bring AI models closer to everyday use. I am especially interested in model reliability,
+            explainability, efficient deployment, and clear communication of research results.
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><div class="icon-box">⌁</div><h3>AI in Healthcare</h3><p>Machine learning for clinical data, blood-count analysis, and decision-support research.</p></article>
+          <article class="card"><div class="icon-box">◉</div><h3>Biomedical Imaging</h3><p>Deep learning for medical images, image enhancement, classification, and visual explanations.</p></article>
+          <article class="card"><div class="icon-box">▣</div><h3>Mobile & Efficient AI</h3><p>Deploying compact AI models in Android apps, with a focus on offline use and practical speed.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Research interests</div>
+          <h2 class="section-title">Questions I work on</h2>
+          <p>My work explores both model performance and how AI systems can be used and understood in practice.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card"><h3>Explainable Machine Learning</h3><p>Understanding model decisions with feature analysis and explainability methods such as SHAP and Grad-CAM++.</p><div class="tag-list"><span class="tag">SHAP</span><span class="tag">Grad-CAM++</span></div></article>
+          <article class="card"><h3>Clinical Data Modeling</h3><p>Analyzing complete blood count (CBC) data for research into anemia and platelet disorders.</p><div class="tag-list"><span class="tag">CBC</span><span class="tag">Random Forest</span></div></article>
+          <article class="card"><h3>Computer Vision</h3><p>Building image-classification and object-detection workflows for medical imaging applications.</p><div class="tag-list"><span class="tag">CNNs</span><span class="tag">YOLO</span></div></article>
+          <article class="card"><h3>Model Compression</h3><p>Pruning and quantization to make deep-learning models smaller and more efficient.</p><div class="tag-list"><span class="tag">Pruning</span><span class="tag">Quantization</span></div></article>
+          <article class="card"><h3>Data Quality & Evaluation</h3><p>Careful data checks, balanced evaluation, external testing, and transparent reporting of model limits.</p><div class="tag-list"><span class="tag">Validation</span><span class="tag">Ablation</span></div></article>
+          <article class="card"><h3>Mobile Health</h3><p>Offline-first Android applications that run trained models directly on compatible devices.</p><div class="tag-list"><span class="tag">Android</span><span class="tag">ONNX</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Selected projects</div>
+          <h2 class="section-title">From research to working tools</h2>
+          <p>Selected projects in medical AI and on-device deployment. Open the linked repositories to explore source code where available.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <div class="icon-box">🩸</div>
+            <h3>CBC Diagnoser</h3>
+            <p>An Android-based AI project for hematological assessment from complete blood count data, with an emphasis on explainability and offline model use.</p>
+            <div class="tag-list"><span class="tag">Healthcare AI</span><span class="tag">Random Forest</span><span class="tag">ONNX</span><span class="tag">Android</span></div>
+            <p style="margin-top:18px"><a href="https://github.com/shahadathhossen/cbcdiag">View project on GitHub ↗</a></p>
+          </article>
+          <article class="card">
+            <div class="icon-box">🦴</div>
+            <h3>FractureNet / FractureX</h3>
+            <p>A pruned and quantized YOLO-based approach to wrist-fracture detection, developed with Android-based use in mind.</p>
+            <div class="tag-list"><span class="tag">YOLO</span><span class="tag">Computer Vision</span><span class="tag">Model Compression</span><span class="tag">Android</span></div>
+            <p style="margin-top:18px"><a href="https://github.com/shahadathhossen/FractureNet-Wrist-Fracture-Detection">View project on GitHub ↗</a></p>
+          </article>
+          <article class="card">
+            <div class="icon-box">👁</div>
+            <h3>Retinal Fundus Image Classification</h3>
+            <p>A deep-learning workflow for classifying retinal fundus images, exploring CLAHE image enhancement, augmentation, and Grad-CAM++ explanations.</p>
+            <div class="tag-list"><span class="tag">EfficientNetB0</span><span class="tag">Fundus Imaging</span><span class="tag">Grad-CAM++</span></div>
+          </article>
+          <article class="card">
+            <div class="icon-box">✚</div>
+            <h3>Explainable Clinical Prediction</h3>
+            <p>Research into multi-output prediction from CBC features, including anemia type, severity, and platelet-disorder categories.</p>
+            <div class="tag-list"><span class="tag">Multi-output ML</span><span class="tag">Feature Ablation</span><span class="tag">Explainable AI</span></div>
+          </article>
+        </div>
+        <p class="notice" style="margin-top:18px">Please verify the repository links and project descriptions before publishing. Edit or remove any project details that are not yet public.</p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Publications & research outputs</div>
+          <h2 class="section-title">Selected research</h2>
+          <p>Use this section to list published papers, preprints, conference papers, and manuscripts under review with their correct status.</p>
+        </div>
+        <div class="grid-2">
+          <article class="card publication">
+            <div class="type">Conference paper · Award</div>
+            <h3>FractureNet: A Pruned and Quantized YOLOv11-M Model for Android-Based Wrist Fracture Detection</h3>
+            <p class="details">Presented at BIM 2025. The work received a Best Paper Award (2nd Runner-up), according to the author's records.</p>
+            <p><a href="https://github.com/shahadathhossen/FractureNet-Wrist-Fracture-Detection">Project repository ↗</a></p>
+          </article>
+          <article class="card publication">
+            <div class="type">Preprint</div>
+            <h3>Android-Based AI Application for Hematological Disorder Detection from CBC Data</h3>
+            <p class="details">Research on an Android application for detecting hematological disorders using complete blood count data.</p>
+            <p><a href="https://www.ssrn.com/">Find on SSRN ↗</a></p>
+          </article>
+          <article class="card publication">
+            <div class="type">Manuscript · Verify current status</div>
+            <h3>Android-Based Explainable AI for Coexisting Anemia and Platelet Disorder Diagnosis Using CBC Data</h3>
+            <p class="details">Research on explainable, multi-output prediction of anemia type, severity, and platelet disorders from CBC features.</p>
+            <p class="details">Add the journal link or DOI once it is publicly available.</p>
+          </article>
+          <article class="card publication">
+            <div class="type">Research dataset</div>
+            <h3>FD3611 Retinal Fundus Image Classification</h3>
+            <p class="details">A retinal fundus image classification research resource. Add the exact dataset citation and publication details here.</p>
+            <p><a href="https://doi.org/10.6084/m9.figshare.32086296.v1">Dataset record on Figshare ↗</a></p>
+          </article>
+        </div>
+        <p class="notice" style="margin-top:18px">Before publishing, confirm paper titles, author lists, venue names, publication status, DOI links, and dataset attribution. Do not label a manuscript as published unless it has been formally published.</p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Education & recognition</div>
+          <h2 class="section-title">Academic background</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">2026–2029</div>
+            <div><h3>PhD in Computer Science and Telecommunication Engineering</h3><p>Noakhali Science and Technology University (NSTU), Bangladesh.</p></div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div><h3>MSc in Electrical and Electronic Engineering</h3><p>Noakhali Science and Technology University (NSTU). Reported CGPA: 3.85.</p></div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">Undergraduate</div>
+            <div><h3>BSc in Electrical and Electronic Engineering</h3><p>Noakhali Science and Technology University (NSTU). Add your graduation year and final verified CGPA if desired.</p></div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div><h3>Best Paper Award (2nd Runner-up)</h3><p>BIM 2025, for the FractureNet wrist-fracture detection research.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Technical skills</div>
+          <h2 class="section-title">Tools and methods</h2>
+        </div>
+        <div class="card">
+          <div class="tag-list" style="margin-top:0">
+            <span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span>
+            <span class="tag">Scikit-learn</span><span class="tag">TensorFlow / Keras</span><span class="tag">PyTorch</span>
+            <span class="tag">YOLO</span><span class="tag">SHAP</span><span class="tag">Grad-CAM++</span>
+            <span class="tag">ONNX</span><span class="tag">Android Development</span><span class="tag">Computer Vision</span>
+            <span class="tag">Data Analysis</span><span class="tag">Model Evaluation</span><span class="tag">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Let's connect</h2>
+            <p>For research collaboration, academic discussion, or project inquiries, connect through the profiles below.</p>
+          </div>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn primary" href="https://github.com/shahadathhossen">GitHub ↗</a>
+            <a class="btn secondary" href="https://orcid.org/0000-0001-8021-9659">ORCID ↗</a>
+            <a class="btn secondary" href="https://scholar.google.com/">Google Scholar ↗</a>
+          </div>
+        </div>
+        <p class="notice" style="margin-top:18px">Add a public professional email address and your exact Google Scholar profile URL when ready. Avoid publishing personal contact details you do not want to make public.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Shahadath Hossen. All rights reserved.</span>
+      <span>Built with HTML & CSS · Hosted with GitHub Pages</span>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  </script>
+</body>
+</html>
